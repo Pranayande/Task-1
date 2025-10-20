@@ -56,7 +56,7 @@ public class TaskRepoimp implements TaskRepo{
     }
 
     @Override
-    public Task ExecutedById(String id){
+    public Task ExecutedById(String id) {
         Task task = findById(id);
         if (task == null) {
             return null;
@@ -64,7 +64,18 @@ public class TaskRepoimp implements TaskRepo{
 
         try {
             Date startTime = new Date();
-            ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", task.getCommand());
+
+            String os = System.getProperty("os.name").toLowerCase();
+            ProcessBuilder processBuilder;
+
+            if (os.contains("win")) {
+                // For Windows
+                processBuilder = new ProcessBuilder("cmd.exe", "/c", task.getCommand());
+            } else {
+                // For Linux / macOS
+                processBuilder = new ProcessBuilder("bash", "-c", task.getCommand());
+            }
+
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
 
@@ -72,16 +83,18 @@ public class TaskRepoimp implements TaskRepo{
             process.waitFor();
 
             Date endTime = new Date();
-            TaskExecution execution = new TaskExecution(startTime, endTime, output.trim());
+            TaskExecution execution = new TaskExecution();
+            execution.setStartTime(startTime);
+            execution.setEndTime(endTime);
+            execution.setOutput(output);
 
             task.getTaskExecutions().add(execution);
             mongoTemplate.save(task);
 
             return task;
+
         } catch (Exception e) {
-            throw new RuntimeException("Error executing command: " + e.getMessage());
+            throw new RuntimeException("Error executing command: " + e.getMessage(), e);
         }
     }
-
-
 }
