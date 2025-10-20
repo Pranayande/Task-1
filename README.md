@@ -86,7 +86,7 @@ Retrieves all existing tasks from MongoDB.
 ```
 
  **Screenshot:**
-![Get All Tasks](screenshots/get_all_tasks.png)
+![Get All Tasks](https://github.com/Pranayande/Task-1/blob/main/Get%20all.png)
 
 ---
 
@@ -96,7 +96,7 @@ Retrieves all existing tasks from MongoDB.
 Returns a single task or **404** if not found.
 
  **Screenshot:**
-![Get Task by ID](screenshots/get_task_by_id.png)
+![Get Task by ID](https://github.com/Pranayande/Task-1/blob/main/GET%20BY%20ID.png)
 
 ---
 
@@ -118,7 +118,7 @@ Returns a single task or **404** if not found.
  Validates the command to ensure it’s safe before saving to MongoDB.
 
 **Screenshot:**
-![Create Task](screenshots/create_task.png)
+![Create Task](https://github.com/Pranayande/Task-1/blob/main/ADD.png)
 
 ---
 
@@ -128,7 +128,7 @@ Returns a single task or **404** if not found.
 Deletes a task by ID.
 
 📸 **Screenshot:**
-![Delete Task](screenshots/delete_task.png)
+![Delete Task](https://github.com/Pranayande/Task-1/blob/main/Delete.png)
 
 ---
 
@@ -139,7 +139,7 @@ Finds tasks whose name **contains** the given string.
 If nothing matches, returns **404**.
 
 📸 **Screenshot:**
-![Search Task by Name](screenshots/search_task_by_name.png)
+![Search Task by Name](https://github.com/Pranayande/Task-1/blob/main/Search.png)
 
 ---
 
@@ -168,7 +168,7 @@ Executes the stored shell command for a specific task, captures output, and stor
 ```
 
 **Screenshot:**
-![Execute Task](screenshots/run_task_command.png)
+![Execute Task](https://github.com/Pranayande/Task-1/blob/main/Execute.png)
 
 ---
 
